@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "pokemon-card": "/components/pokemon-card/pokemon-card",
+    "pokemon-basevalue": "/components/pokemon-basevalue/pokemon-basevalue",
+    "type-relation-card": "/components/TypeRelation-Card/TypeRelation-Card"
+  }
+}

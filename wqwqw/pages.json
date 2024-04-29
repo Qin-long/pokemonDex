@@ -1,0 +1,151 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/pokemon/pokemon",
+			"style": {
+			}
+		},
+			{
+			"path": "pages/nature/nature",
+			"style": {
+					
+			}
+		}
+	    ,{
+            "path" : "pages/human/human",
+            "style" :                                                                                    
+            {
+
+            }  
+        }
+        ,{
+            "path" : "pages/creature/creature",
+            "style" :                                                                                    
+            {
+				"onReachBottomDistance": 150
+            }
+            
+        }
+    ],
+	"subPackages": [{
+		"root": "subpkg",
+		"pages": [{
+			"path": "pokemon-detail/pokemon-detail",
+			"style": {
+				
+			}
+		},{
+			"path": "search/search",
+			"style": {
+				
+			}
+		}
+		    ,{
+                    "path" : "move/move",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "ability/ability",
+                    "style" :                                                                                    
+                {
+                }
+                
+                }
+            ]
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "Pokemon",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+			"van-dropdown-menu": "./wxcomponents/vant/dist/dropdown-menu/index",
+			"van-dropdown-item": "./wxcomponents/vant/dist/dropdown-item/index",
+			"van-action-sheet": "./wxcomponents/vant/dist/action-sheet/index",
+			"van-area": "./wxcomponents/vant/dist/area/index",
+			"van-button": "./wxcomponents/vant/dist/button/index",
+			"van-card": "./wxcomponents/vant/dist/card/index",
+			"van-cell": "./wxcomponents/vant/dist/cell/index",
+			"van-cell-group": "./wxcomponents/vant/dist/cell-group/index",
+			"van-checkbox": "./wxcomponents/vant/dist/checkbox/index",
+			"van-checkbox-group": "./wxcomponents/vant/dist/checkbox-group/index",
+			"van-col": "./wxcomponents/vant/dist/col/index",
+			"van-dialog": "./wxcomponents/vant/dist/dialog/index",
+			"van-field": "./wxcomponents/vant/dist/field/index",
+			"van-goods-action": "./wxcomponents/vant/dist/goods-action/index",
+			"van-goods-action-icon": "./wxcomponents/vant/dist/goods-action-icon/index",
+			"van-goods-action-button": "./wxcomponents/vant/dist/goods-action-button/index",
+			"van-icon": "./wxcomponents/vant/dist/icon/index",
+			"van-loading": "./wxcomponents/vant/dist/loading/index",
+			"van-nav-bar": "./wxcomponents/vant/dist/nav-bar/index",
+			"van-notice-bar": "./wxcomponents/vant/dist/notice-bar/index",
+			"van-notify": "./wxcomponents/vant/dist/notify/index",
+			"van-panel": "./wxcomponents/vant/dist/panel/index",
+			"van-popup": "./wxcomponents/vant/dist/popup/index",
+			"van-progress": "./wxcomponents/vant/dist/progress/index",
+			"van-radio": "./wxcomponents/vant/dist/radio/index",
+			"van-radio-group": "./wxcomponents/vant/dist/radio-group/index",
+			"van-row": "./wxcomponents/vant/dist/row/index",
+			"van-search": "./wxcomponents/vant/dist/search/index",
+			"van-slider": "./wxcomponents/vant/dist/slider/index",
+			"van-stepper": "./wxcomponents/vant/dist/stepper/index",
+			"van-sticky": "./wxcomponents/vant/dist/sticky/index",
+			"van-steps": "./wxcomponents/vant/dist/steps/index",
+			"van-submit-bar": "./wxcomponents/vant/dist/submit-bar/index",
+			"van-swipe-cell": "./wxcomponents/vant/dist/swipe-cell/index",
+			"van-switch": "./wxcomponents/vant/dist/switch/index",
+			"van-tab": "./wxcomponents/vant/dist/tab/index",
+			"van-tabs": "./wxcomponents/vant/dist/tabs/index",
+			"van-tabbar": "./wxcomponents/vant/dist/tabbar/index",
+			"van-tabbar-item": "./wxcomponents/vant/dist/tabbar-item/index",
+			"van-tag": "./wxcomponents/vant/dist/tag/index",
+			"van-toast": "./wxcomponents/vant/dist/toast/index",
+			"van-transition": "./wxcomponents/vant/dist/transition/index",
+			"van-tree-select": "./wxcomponents/vant/dist/tree-select/index",
+			"van-datetime-picker": "./wxcomponents/vant/dist/datetime-picker/index",
+			"van-rate": "./wxcomponents/vant/dist/rate/index",
+			"van-collapse": "./wxcomponents/vant/dist/collapse/index",
+			"van-collapse-item": "./wxcomponents/vant/dist/collapse-item/index",
+			"van-picker": "./wxcomponents/vant/dist/picker/index",
+			"van-share-sheet": "./wxcomponents/vant/dist/share-sheet/index",
+			"van-circle": "./wxcomponents/vant/dist/circle/index",
+			"van-grid": "./wxcomponents/vant/dist/grid/index",
+			"van-grid-item": "./wxcomponents/vant/dist/grid-item/index",
+			"van-calendar": "./wxcomponents/vant/dist/calendar/index",
+			"van-image": "./wxcomponents/vant/dist/image/index"			
+		}
+	},
+	"tabBar": {
+		"selectedColor": "#C00000",
+		"list": [{
+				"pagePath": "pages/pokemon/pokemon",
+				"text": "图鉴",
+				"iconPath": "static/皮卡丘-2.png",
+				"selectedIconPath": "static/皮卡丘-2 (1).png"
+			},
+			{
+				"pagePath": "pages/nature/nature",
+				"text": "属性",
+				"iconPath": "static/sharpicons_ribbon.png",
+				"selectedIconPath": "static/徽章.png"
+		 },{
+			    "pagePath" : "pages/creature/creature",
+				"text": "特性",
+				"iconPath": "static/星星 (1).png",
+				"selectedIconPath": "static/星星.png"
+		 }
+		 ,{
+			    "pagePath" : "pages/human/human",
+				"text": "道具",
+				"iconPath": "static/精灵球.png",
+				"selectedIconPath": "static/精灵球 (1).png"
+		 }
+		 ]
+		 },
+	"uniIdRouter": {}
+}

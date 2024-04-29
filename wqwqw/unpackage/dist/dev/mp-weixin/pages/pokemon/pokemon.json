@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "pokemon-list": "/components/pokemon-list/pokemon-list"
+  }
+}

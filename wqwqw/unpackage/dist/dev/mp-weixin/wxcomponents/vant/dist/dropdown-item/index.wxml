@@ -1,0 +1,34 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view
+  wx:if="{{ showWrapper }}"
+  class="{{ utils.bem('dropdown-item', direction) }} custom-class"
+  style="{{ wrapperStyle }}"
+>
+  <van-popup
+    show="{{ showPopup }}"
+    custom-style="position: absolute;{{ popupStyle }}"
+    overlay-style="position: absolute;"
+    overlay="{{ overlay }}"
+    position="{{ direction === 'down' ? 'top' : 'bottom' }}"
+    duration="{{ transition ? duration : 0 }}"
+    safe-area-tab-bar="{{ safeAreaTabBar }}"
+    close-on-click-overlay="{{ closeOnClickOverlay }}"
+    rootPortal="{{ rootPortal }}"
+    bind:enter="onOpen"
+    bind:leave="onClose"
+    bind:close="toggle"
+    bind:afterEnter="onOpened"
+    bind:afterLeave="onClosed"
+  >
+    <van-grid :column-num="1">
+      <van-grid-item  
+	   wx:for="{{options}}"  
+	   wx:key="value"
+	   color="{{item.color}}"	
+	   text="{{item.text}}" 
+	   bind:tap="onOptionTap" 
+	   data-item="{{item}}" />
+    </van-grid>
+  </van-popup>
+</view>
