@@ -1,74 +1,73 @@
 <template>
-    <view class="container roundy-5 border-1 border-skyblue">
-        <table>
-            <thead>
-                <tr height="50">
-                    <th>等级</th>
-                    <th>招式</th>
-                    <th>属性</th>
-                    <th>分类</th>
-                    <th>威力</th>
-                    <th>命中</th>
-                    <th>P P</th>
-                </tr>
-            </thead>
-            <tbody class="font-size-15"> 
-                <tr height="30" v-for="(skill, index) of pokemon.learnSetByLevelingUp" :key="index" class="text-center bg-white">
-                    <td>{{skill.level}}</td>
-                    <td :class="{'font-bold': (skill.type == pokemon.type1 || skill.type == pokemon.type2)}">
-                        {{skill.move}}
-                    </td>
-                    <td  class="text-white">
-                        {{skill.type}}
-                    </td>
-                    <td  class="text-white">
-                        {{skill.category}}
-                    </td>
-                    <td>{{skill.power}}</td>
-                    <td>{{skill.accuracy}}</td>
-                    <td>{{skill.pp}}</td>
-                </tr>
-                <tr>
-                    <td colspan="7" height="50" class="text-center font-size-15">
-                        <span class="tips  font-bold">粗体</span>的招式为本系招式享受1.5倍加成。 <br>
-                        <span class="tips">等级中的"—"表示此招式可通过招式教学习得。</span> 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </view>
+	<view class="container roundy-5 bgl-fly border-1 border-skyblue" v-if="data">
+		<view class="flex-row text-center bg-white" style="width: 100%;">
+			<view class="roundy-20 border-darkred border-1" style="width: 16%;">
+				等级
+			</view>
+			<view class="roundy-20 border-darkred border-1" style="width: 16%;">
+				招式
+			</view>
+			<view class="roundy-20 border-darkred border-1" style="width: 16%;">
+				属性
+			</view>
+			<view class="roundy-20 border-darkred border-1" style="width: 16%;">
+				分类
+			</view>
+			<view class="roundy-20 border-darkred border-1" style="width: 16%;">
+				威力
+			</view>
+			<view class="roundy-20 border-darkred border-1" style="width: 16%;">
+				命中
+			</view>
+		</view>
+		<view v-for="(item,index) in data" :key="index" class="flex-row text-center bg-white font-size-25" style="width: 100%;">
+			<view class=" border-darkred border-1" style="width: 16%;">
+				{{item.level}}
+			</view>
+			<view class=" border-darkred border-1" style="width: 16%;">
+				{{item.type}}
+			</view>
+			<view class=" border-darkred border-1" style="width: 16%;">
+				{{item.category}}
+			</view>
+			<view class=" border-darkred border-1" style="width: 16%;">
+				{{item.power}}
+			</view>
+			<view class=" border-darkred border-1" style="width: 16%;">
+				{{item.accuracy}}
+			</view>
+			<view class=" border-darkred border-1" style="width: 16%;">
+				{{item.pp}}
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
-export default {
-    name: "pokemon-skill",
-    props: ["pokemon", "getColorByType", "getColorBySkillType"],
-}
+	export default {
+		name: "pokemon-skill",
+		mounted() {
+			console.log(this.data);
+		},
+		props: {
+			data: {
+				type: Array,
+				default: {}
+			}
+		},
+		data() {
+			return {
+
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
-.container {
-    max-width: 600px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-tr {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-td {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-@media screen and (min-width: 601px) {
-    .container {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
+	.container {
+		width: 100vw;
+		margin: 0 auto;
+		overflow: auto;
+		box-sizing: border-box;
+	}
 </style>

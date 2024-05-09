@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import pokemon from './pokemon.js'
-Vue.use(vuex)
-const store = bew Vuex.Store({
-	module:{
-		
+Vue.use(Vuex)
+const store = new Vuex.Store({
+	modules:{
+		m_pokemon:pokemon,
 	}
 })
 export default store

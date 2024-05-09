@@ -24,6 +24,7 @@
 
 	.flex-row {
 		display: flex;
+		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 	}
@@ -34,12 +35,14 @@
 		justify-content: center;
 		align-items: center;
 	}
-
+	
 	// /*每个页面公共css */
 	.text-white {
 		color: black;
 	}
-
+	.text-black{
+		color: white;
+	}
 	.table-fixed {
 		table-layout: fixed;
 	}

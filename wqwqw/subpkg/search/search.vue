@@ -12,31 +12,33 @@
 			</van-search>
 		</view>
 		<view class="cell-bottom" v-if="searchResults">
-			<!-- 	<van-cell v-for="(item,id) in searchResults" :key="id" :title="item.nameZh" :form="item.form"
-			is-link :arrow-direction="" /> -->
-			<van-cell v-for="(item,id) in searchResults" :label="value != 2 ? item.desc : item.detail.desc" :key="id" :title="item.nameZh" :form="item.form" is-link
-				arrow-direction="" @click="toPokemondetail(item.index,item.form)" >
-				<template #default>
+			<van-cell v-for="(item,id) in searchResults" :label="item.desc" :key="id"
+				:title="item.name_zh" is-link arrow-direction=""
+				@click="toPokemondetail(item.id)">
+				<template #default v-if="!(value==1|value==2)">
 					<view v-if="value">
-					<img class="img" :src="value!=2?'https://images.weserv.nl/?url='+item.imgUrl : 'https://images.weserv.nl/?url='+item.detail.imgUrl" :alt="item.type">
+						<img class="img"
+							:src="'https://images.weserv.nl/?url='+item.img_url"
+							:alt="item.type">
 					</view>
 					<view v-else>
 						<img class="img" :src="pkball" alt=""><span class="font-bold">{{item.index}}</span>
 					</view>
 				</template>
-				</van-cell>
+			</van-cell>
 		</view>
 	</view>
 </template>
 
 <script>
 	export default {
-		onLoad(options) {
-			this.value = Number(options.index) 
+		onLoad({index}) {
+			console.log(index);
+			this.value = Number(index)
 		},
 		data() {
 			return {
-				pkball:'../../static/精灵球 (1).png',
+				pkball: '../../static/精灵球 (1).png',
 				// 搜索关键词
 				pokemon: '',
 				// 延时器的 timerId
@@ -46,28 +48,28 @@
 				searchType: [{
 						text: '精灵',
 						value: 0,
-						type:'pokemon'
+						type: 'pokemon',
+						page: 'pokemon-detail'
 					},
 					{
 						text: '特性',
 						value: 1,
-						type:'ability'
+						type: 'abilitys',
+						page: 'ability'
 					},
 					{
 						text: '招式',
 						value: 2,
-						type:'move'
-					},{
+						type: 'moves',
+						page: 'move'
+					}, {
 						text: '道具',
 						value: 3,
-						type:'item'
+						type: 'items',
 					},
 				],
-				value:0
+				value: 0
 			};
-		},
-		computed:{
-
 		},
 		methods: {
 			onSearch() {
@@ -87,7 +89,7 @@
 					this.getPokemondetail(e.detail)
 				}, 500)
 			},
-			changeType(e){
+			changeType(e) {
 				// 清空数据
 				this.searchResults = []
 				//替换搜索类型
@@ -105,34 +107,35 @@
 				try {
 					const {
 						data
-					} = await uni.$http.get(`${this.searchType[this.value].type}/detail`, {
-						nameZh: this.pokemon
+					} = await uni.$http.get(`${this.searchType[this.value].type}/list`, {
+						name_zh: this.pokemon
 					})
-					if(!data)return uni.$showMsg("未检索到匹配项")
-					console.log(data);
+					console.log();
+					if (data.length===0) return uni.$showMsg("未检索到匹配项")
 					this.searchResults = data
 				} catch (err) {
 					console.log(err);
 					return uni.$showMsg("数据加载失败")
 				}
 			},
-			toPokemondetail(index, form = '') {
-				console.log(index, form);
+			toPokemondetail(id = '') {
+				if(this.page==='item') return
 				uni.navigateTo({
-					url: `/subpkg/pokemon-detail/pokemon-detail?query= ${index}&form=${form}`
+					url: `/subpkg/${this.searchType[this.value].page}/${this.searchType[this.value].page}?id= ${id}`
 				})
 			}
 		}
 	}
 </script>
 
-<style lang="scss" >
-	.img{
+<style lang="scss">
+	.img {
 		position: absolute;
 		right: 100rpx;
 		width: 50rpx;
 		height: 50rpx;
 	}
+
 	.search-box {
 		position: fixed;
 		width: 100vw;

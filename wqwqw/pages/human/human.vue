@@ -5,11 +5,11 @@
 			<view slot="action" @click="onClick">搜索</view>
 		</van-search>
 		<view class="cell-bottom" v-if="list">
-			<van-cell v-for="(item,id) in list" :label="item.desc" :key="id" :title="item.nameZh" is-link
+			<van-cell v-for="(item,id) in list" :label="item.desc" :key="id" :title="item.name_zh" is-link
 				arrow-direction="" @click="toPokemondetail(item.index,item.form)">
 				<template #default>
 					<view v-if="list">
-						<img class="img" :src="'https://images.weserv.nl/?url='+item.imgUrl" :alt="item.type">
+						<img class="img" :src="'https://images.weserv.nl/?url='+item.img_url" :alt="item.type">
 					</view>
 				</template>
 			</van-cell>
@@ -48,7 +48,7 @@
 				try {
 					const {
 						data
-					} = await uni.$http.get('item/list', this.query)
+					} = await uni.$http.get('items/list', this.query)
 					this.isloading = false
 					this.list = [...this.list, ...data]
 				} catch (e) {

@@ -1,8 +1,8 @@
 <template>
 	<view>
 		<van-cell :title="gen" is-link :arrow-direction="icon" @click="changStatu" />
-		<van-cell v-for="(obj,id) in list" :key="id" is-link :title="obj.nameZh" :form="obj.form" v-if="isShow"
-			arrow-direction="" @click="goPokemondetail(obj.index,obj.form)" >
+		<van-cell v-for="(obj,id) in list" :key="id" is-link :title="obj.name_zh"  v-if="isShow"
+			arrow-direction="" @click="goPokemondetail(obj.id)" >
 			<template #default>
 				<view>
 					<img class="img" :src="pkball" alt=""><span class="font-bold">{{obj.index}}</span>
@@ -14,7 +14,6 @@
 
 <script>
 	export default {
-		
 		name: "pokemon-list",
 		props: {
 			count: {
@@ -64,10 +63,10 @@
 					return 
 				}
 			},
-			goPokemondetail(index, form = '') {
-				console.log(index, form);
+			goPokemondetail(index) {
+				console.log(index);
 				uni.navigateTo({
-					url: `/subpkg/pokemon-detail/pokemon-detail?query= ${index}&form=${form}`
+					url: `/subpkg/pokemon-detail/pokemon-detail?index= ${index}`
 				})
 			},
 		}

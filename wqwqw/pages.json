@@ -2,61 +2,51 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/pokemon/pokemon",
-			"style": {
-			}
+			"style": {}
 		},
-			{
+		{
 			"path": "pages/nature/nature",
 			"style": {
-					
-			}
-		}
-	    ,{
-            "path" : "pages/human/human",
-            "style" :                                                                                    
-            {
-
-            }  
-        }
-        ,{
-            "path" : "pages/creature/creature",
-            "style" :                                                                                    
-            {
 				"onReachBottomDistance": 150
-            }
-            
-        }
-    ],
+			}
+		}, {
+			"path": "pages/human/human",
+			"style": {
+				"onReachBottomDistance": 150
+			}
+		}, {
+			"path": "pages/creature/creature",
+			"style": {
+				"onReachBottomDistance": 150
+			}
+
+		}
+	],
 	"subPackages": [{
 		"root": "subpkg",
 		"pages": [{
 			"path": "pokemon-detail/pokemon-detail",
 			"style": {
-				
+
 			}
-		},{
+		}, {
 			"path": "search/search",
 			"style": {
-				
+
 			}
-		}
-		    ,{
-                    "path" : "move/move",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "ability/ability",
-                    "style" :                                                                                    
-                {
-                }
-                
-                }
-            ]
+		}, {
+			"path": "move/move",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "ability/ability",
+			"style": {
+
+			}
+
+		}]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -117,7 +107,7 @@
 			"van-grid": "./wxcomponents/vant/dist/grid/index",
 			"van-grid-item": "./wxcomponents/vant/dist/grid-item/index",
 			"van-calendar": "./wxcomponents/vant/dist/calendar/index",
-			"van-image": "./wxcomponents/vant/dist/image/index"			
+			"van-image": "./wxcomponents/vant/dist/image/index"
 		}
 	},
 	"tabBar": {
@@ -130,22 +120,21 @@
 			},
 			{
 				"pagePath": "pages/nature/nature",
-				"text": "属性",
+				"text": "招式",
 				"iconPath": "static/sharpicons_ribbon.png",
 				"selectedIconPath": "static/徽章.png"
-		 },{
-			    "pagePath" : "pages/creature/creature",
+			}, {
+				"pagePath": "pages/creature/creature",
 				"text": "特性",
 				"iconPath": "static/星星 (1).png",
 				"selectedIconPath": "static/星星.png"
-		 }
-		 ,{
-			    "pagePath" : "pages/human/human",
+			}, {
+				"pagePath": "pages/human/human",
 				"text": "道具",
 				"iconPath": "static/精灵球.png",
 				"selectedIconPath": "static/精灵球 (1).png"
-		 }
-		 ]
-		 },
+			}
+		]
+	},
 	"uniIdRouter": {}
 }

@@ -1,13 +1,13 @@
 import App from './App'
-
 // #ifndef VUE3
 import Vue from 'vue'
+import store from 'store/store.js'
 import { $http } from '@escook/request-miniprogram'
 
 // 在 uni-app 项目中，可以把 $http 挂载到 uni 顶级对象之上，方便全局调用
 uni.$http = $http
 // 基地址
-$http.baseUrl = 'https://pokemon.fantasticmao.cn/'
+$http.baseUrl = 'http://172.220.5.169:3000/'
 
 //请求开始做的事情
 $http.beforeRequest = function(options){
@@ -43,7 +43,9 @@ uni.$showMsg = function (title = '数据加载失败！', duration = 1500) {
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({
-    ...App
+    ...App,
+	// 挂载vuex到vue上
+	store
 })
 app.$mount()
 // #endif

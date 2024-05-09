@@ -2,32 +2,31 @@
 	<!-- <view v-if="pokemon"> -->
 	<!-- 宝可梦信息卡片 -->
 	<view v-if="data">
-		<pokemon-card :data="data" />
-		<view style="height: 1vh;">
-			
-		</view>
-		 <!-- 宝可梦种族值信息卡片 -->
-		<h4><span class="pokemon-icon">&#xe853; </span>种族值</h4>
-		<pokemon-basevalue :data="data"/>
-		<view style="height: 1vh;">
-			
-		</view>
-		 <!-- 宝可梦属性相克 -->
-		<h4><span class="pokemon-icon">&#xe853; </span>属性克制</h4>
-		<TypeRelation-Card :data="data"/>
-		<view style="height: 5vh;">
-			
+		<pokemon-card :data="data.pokemonDetail" />
+		<view style="height: 1vh;"/>
+		<!-- 宝可梦种族值信息卡片 -->
+		<view><span class="pokemon-icon">&#xe853; </span>种族值</view>
+		<pokemon-basevalue :data="data.baseStat[0]" />
+		<view style="height: 1vh;"/>
+		<!-- 宝可梦属性相克 -->
+		<view><span class="pokemon-icon">&#xe853; </span>属性克制</view>
+		<TypeRelation-Card :data="data.pokemonDetail" />
+		<view style="height: 1vh;"/>
+			<!-- 宝可梦属性相克 -->
+			<view><span class="pokemon-icon">&#xe853; </span>可学会招式表</view>
+			<pokemon-skill :data="data.learnSetLevelingUp" />
+			<view style="height: 5vh;" />
 		</view>
 	</view>
-	
-	
+
+
 </template>
 
 <script>
 	export default {
-		onLoad(options) {
-			const {query,form} = options
-			this.getPokemondetail(query,form)
+		onLoad({index='',name_zh=''}) {
+			console.log(name_zh);
+			this.getPokemondetail(index,name_zh)
 		},
 		data() {
 			return {
@@ -37,15 +36,16 @@
 			}
 		},
 		methods: {
-			async getPokemondetail(index,form) {
+			async getPokemondetail(idx,name_zh) {
 				try {
 					const {
 						data
 					} = await uni.$http.get("pokemon/detail", {
-						index,form
+						idx,name_zh
 					})
-					this.data = data[0]
+					this.data = data
 				} catch (err) {
+					uni.$showMsg('数据加载失败')
 					console.log(err);
 				}
 			}
@@ -59,23 +59,8 @@
 		min-width: 320px;
 	}
 
-	table {
-		width: 100%;
-	}
-
-	.table-fixed {
-		table-layout: fixed;
-	}
 
 	.pokemon-img {
 		width: 100%;
-	}
-
-	@media screen and (max-width: 600px) {
-		.card-container {
-			width: 90vw;
-			margin-left: auto;
-			margin-right: auto;
-		}
 	}
 </style>

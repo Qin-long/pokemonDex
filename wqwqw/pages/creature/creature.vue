@@ -6,8 +6,8 @@
 			<view slot="action" @click="onClick">搜索</view>
 		</van-search>
 		<view class="cell-bottom">
-			<van-cell v-for="(item,id) in list"  :key="id" :title="item.nameZh" is-link
-				arrow-direction="" @click="toPokemondetail(item.index,item.form)">
+			<van-cell v-for="(item,index) in list"  :key="index" :title="item.name_zh" is-link
+				arrow-direction="" @click="toAbilitytail(item.id)">
 			</van-cell>
 		</view>
 	</view>
@@ -43,7 +43,7 @@
 			},
 			onClick() {
 				uni.navigateTo({
-					url:'/subpkg/search/search?index=0'
+					url:'/subpkg/search/search?index=1'
 				})
 			},
 			async getAbilitylist() {
@@ -51,7 +51,7 @@
 				try {
 					const {
 						data
-					} = await uni.$http.get('ability/list', this.query)
+					} = await uni.$http.get('abilitys/list', this.query)
 					this.isloading = false
 					this.list = [...this.list,...data]
 				} catch (e) {
@@ -59,6 +59,11 @@
 					console.log(e);
 					//TODO handle the exception
 				}
+			},
+			toAbilitytail(index){
+				uni.navigateTo({
+					url:'/subpkg/ability/ability?id='+index
+				})
 			},
 			// 触底加载
 			onReachBottom() {
