@@ -1,8 +1,5 @@
-# 1、README 是什么？
-
-[README](https://en.wikipedia.org/wiki/README?fileGuid=2wAlXOVLNVUJQjAP)是介绍和解释项目的文档。包含了解项目需要的通用信息。 是人们了解项目的第一步，告诉用户该如何使用你的代码。同时，标准化的模板能够使得阅读更直观，对集群型项目来说后续维护也更加方便。
-
-模板能适配适大多数项目，然而每个项目各不相同，可以适当看哪部分更匹配。 README 内容应当最大程度的描述详细，不要过于简单。如果 README 内容过多，可考虑更有层次感的表现形式，而不是删减信息。
+# 1、pokemonDex
+一个简易版微信小程序精灵图鉴，使用的技术栈为uni-app(前端)+express(后端)+sqlite数据库，其中sqlite的数据均来自于神奇宝贝百科
 
 # 2、READMETemplate-模板
 
