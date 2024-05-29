@@ -16,6 +16,6 @@ yarn start&npm run start
 将main.js中的baseUrl改为自己的地址或者localhost：3000
 ```
 #3、爬虫参考
-爬虫程序使用的是[fantasticmao]([http://www.cnblogs.com/sxdcgaq8080/p/7894828.html](https://github.com/fantasticmao/pokemon-wiki/tree/master))这位大佬的，原网站有些元素有所变动需要自己调整。
+爬虫程序使用的是[fantasticmao](https://github.com/fantasticmao/pokemon-wiki/tree/master)这位大佬的，原网站有些元素有所变动需要自己调整。
 
 
