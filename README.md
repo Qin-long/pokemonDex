@@ -1,5 +1,5 @@
 # 1、pokemonDex
-一个简易版微信小程序精灵图鉴，使用的技术栈为uni-app(前端)+express(后端)+sqlite数据库，其中sqlite的数据均来自于神奇宝贝百科
+一个简易版微信小程序精灵图鉴，使用的技术栈为uni-app(前端)+express(后端)+sqlite数据库，其中sqlite的数据使用jsoup爬取自神奇宝贝百科。
 
 # 2、READMETemplate-模板
 
